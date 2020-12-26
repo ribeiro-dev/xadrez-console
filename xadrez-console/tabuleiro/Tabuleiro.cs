@@ -4,23 +4,23 @@ namespace tabuleiro
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
-        private Peca[,] Pecas;
+        private Peca[,] _pecas;
 
         public Tabuleiro(int linhas, int colunas)
         {
             Linhas = linhas;
             Colunas = colunas;
-            Pecas = new Peca[linhas, colunas];
+            _pecas = new Peca[linhas, colunas];
         }
 
         public Peca Peca(int linha, int coluna)
         {
-            return Pecas[linha, coluna];
+            return _pecas[linha, coluna];
         }
 
         public Peca Peca(Posicao pos)
         {
-            return Pecas[pos.Linha, pos.Coluna];
+            return _pecas[pos.Linha, pos.Coluna];
         }
 
         public bool ExistePeca(Posicao pos)
@@ -35,7 +35,7 @@ namespace tabuleiro
             {
                 throw new TabuleiroException("Já existe uma peça nesta posição!");
             }
-            Pecas[pos.Linha, pos.Coluna] = p;
+            _pecas[pos.Linha, pos.Coluna] = p;
             p.Posicao = pos;
         }
 
@@ -48,7 +48,7 @@ namespace tabuleiro
 
             Peca aux = Peca(pos);
             aux.Posicao = null;
-            Pecas[pos.Linha, pos.Coluna] = null;
+            _pecas[pos.Linha, pos.Coluna] = null;
             return aux;
         }
 

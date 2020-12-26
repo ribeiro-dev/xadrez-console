@@ -83,7 +83,7 @@ namespace xadrez
             }
 
             // #JogadaEspecial Roque
-            if (QteMovimentos == 0 && !Partida.xeque)
+            if (QteMovimentos == 0 && !Partida.Xeque)
             {
                 // Roque Pequeno
                 Posicao posT1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
